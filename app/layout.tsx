@@ -22,12 +22,45 @@ export const metadata: Metadata = {
 };
 
 const clerkProxyUrl = process.env.NEXT_PUBLIC_CLERK_PROXY_URL || undefined;
+const clerkContinueText = "para continuar no Proximum Exemplar";
 const clerkLocalization = {
   ...ptBR,
   signIn: {
     ...ptBR.signIn,
+    backupCodeMfa: {
+      ...ptBR.signIn?.backupCodeMfa,
+      subtitle: clerkContinueText,
+    },
+    emailCode: {
+      ...ptBR.signIn?.emailCode,
+      subtitle: clerkContinueText,
+    },
+    emailCodeMfa: {
+      ...ptBR.signIn?.emailCodeMfa,
+      subtitle: clerkContinueText,
+    },
+    emailLink: {
+      ...ptBR.signIn?.emailLink,
+      subtitle: clerkContinueText,
+    },
+    emailLinkMfa: {
+      ...ptBR.signIn?.emailLinkMfa,
+      subtitle: clerkContinueText,
+    },
+    password: {
+      ...ptBR.signIn?.password,
+      subtitle: clerkContinueText,
+    },
+    phoneCode: {
+      ...ptBR.signIn?.phoneCode,
+      subtitle: clerkContinueText,
+    },
     start: {
       ...ptBR.signIn?.start,
+      alternativePhoneCodeProvider: {
+        ...ptBR.signIn?.start?.alternativePhoneCodeProvider,
+        title: "Entrar no Proximum Exemplar com {{provider}}",
+      },
       subtitle: "Acesse sua conta para continuar.",
       subtitleCombined: "Bem-vindo de volta. Acesse sua conta para continuar.",
       title: "Entrar",
@@ -36,8 +69,28 @@ const clerkLocalization = {
   },
   signUp: {
     ...ptBR.signUp,
+    continue: {
+      ...ptBR.signUp?.continue,
+      subtitle: clerkContinueText,
+    },
+    emailCode: {
+      ...ptBR.signUp?.emailCode,
+      subtitle: clerkContinueText,
+    },
+    emailLink: {
+      ...ptBR.signUp?.emailLink,
+      subtitle: clerkContinueText,
+    },
+    phoneCode: {
+      ...ptBR.signUp?.phoneCode,
+      subtitle: clerkContinueText,
+    },
     start: {
       ...ptBR.signUp?.start,
+      alternativePhoneCodeProvider: {
+        ...ptBR.signUp?.start?.alternativePhoneCodeProvider,
+        title: "Entrar no Proximum Exemplar com {{provider}}",
+      },
       subtitle: "Crie sua conta para continuar.",
       subtitleCombined: "Crie sua conta para continuar.",
       title: "Criar conta",
