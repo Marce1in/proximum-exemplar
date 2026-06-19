@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Format check
+        run: pnpm format:check
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Vercel build
+        run: |
+          if [ "${GITHUB_REF}" = "refs/heads/main" ]; then
+            VERCEL_ENVIRONMENT="production"
+            VERCEL_BUILD_FLAG="--prod"
+          else
+            VERCEL_ENVIRONMENT="preview"
+            VERCEL_BUILD_FLAG=""
+          fi
+
+          pnpm dlx vercel pull --yes --environment="$VERCEL_ENVIRONMENT" --token="$VERCEL_TOKEN"
+          pnpm dlx vercel build $VERCEL_BUILD_FLAG --token="$VERCEL_TOKEN"

@@ -1,0 +1,76 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: proximum-exemplar-app
+    command: sh -c "pnpm db:migrate && pnpm dev --hostname 0.0.0.0"
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    env_file:
+      - .env.docker
+    environment:
+      WATCHPACK_POLLING: "true"
+    volumes:
+      - .:/app:z
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:17-alpine
+    container_name: proximum-exemplar-postgres
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    environment:
+      POSTGRES_DB: proximum_exemplar
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d proximum_exemplar"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: proximum-exemplar-redis
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  drizzle-studio:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: proximum-exemplar-drizzle-studio
+    command: pnpm db:studio
+    ports:
+      - "${DRIZZLE_STUDIO_PORT:-4983}:4983"
+    env_file:
+      - .env.docker
+    volumes:
+      - .:/app:z
+      - /app/node_modules
+    depends_on:
+      postgres:
+        condition: service_healthy
+    profiles:
+      - tools
+
+volumes:
+  postgres_data:
+  redis_data:
