@@ -35,6 +35,14 @@ type TaskStatusCardProps = {
   initialTasks: Task[];
 };
 
+const statusLabels: Record<string, string> = {
+  failed: "Falhou",
+  pending: "Pendente",
+  queued: "Na fila",
+  running: "Em execução",
+  succeeded: "Concluída",
+};
+
 function StatusIcon({ status }: { status: string }) {
   if (status === "succeeded") {
     return <CheckCircle2Icon className="size-4 text-emerald-600" />;
@@ -63,9 +71,9 @@ export function TaskStatusCard({ initialTasks }: TaskStatusCardProps) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Background tasks</CardTitle>
+        <CardTitle>Tarefas em segundo plano</CardTitle>
         <CardDescription>
-          Polled through tRPC every five seconds.
+          Atualizadas via tRPC a cada cinco segundos.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
@@ -76,7 +84,7 @@ export function TaskStatusCard({ initialTasks }: TaskStatusCardProps) {
           </div>
         ) : tasks.length === 0 ? (
           <p className="text-muted-foreground text-sm">
-            No queued, running, or completed tasks yet.
+            Nenhuma tarefa na fila, em execução ou concluída ainda.
           </p>
         ) : (
           <div className="space-y-2">
@@ -90,11 +98,13 @@ export function TaskStatusCard({ initialTasks }: TaskStatusCardProps) {
                   <div className="min-w-0">
                     <p className="truncate text-sm font-medium">{task.type}</p>
                     <p className="text-muted-foreground text-xs">
-                      {new Date(task.createdAt).toLocaleString()}
+                      {new Date(task.createdAt).toLocaleString("pt-BR")}
                     </p>
                   </div>
                 </div>
-                <Badge variant="outline">{task.status}</Badge>
+                <Badge variant="outline">
+                  {statusLabels[task.status] ?? task.status}
+                </Badge>
               </div>
             ))}
           </div>

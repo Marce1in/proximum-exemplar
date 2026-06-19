@@ -20,6 +20,13 @@ const transport = new DefaultChatTransport({
   api: "/api/ai/chat",
 });
 
+const chatStatusLabels: Record<string, string> = {
+  error: "Erro",
+  ready: "Pronto",
+  streaming: "Respondendo",
+  submitted: "Enviado",
+};
+
 export function ChatBox() {
   const [input, setInput] = useState("");
   const { messages, sendMessage, status, stop, error } = useChat({
@@ -40,14 +47,16 @@ export function ChatBox() {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between gap-3">
-        <CardTitle>AI assistant</CardTitle>
-        <Badge variant={isBusy ? "secondary" : "outline"}>{status}</Badge>
+        <CardTitle>Assistente de IA</CardTitle>
+        <Badge variant={isBusy ? "secondary" : "outline"}>
+          {chatStatusLabels[status] ?? status}
+        </Badge>
       </CardHeader>
       <CardContent className="space-y-3">
         <div className="bg-muted/30 max-h-80 space-y-3 overflow-y-auto rounded-md border p-3">
           {messages.length === 0 ? (
             <p className="text-muted-foreground text-sm">
-              Ask for a project outline, task breakdown, or product copy.
+              Peça um esboço de projeto, divisão de tarefas ou texto de produto.
             </p>
           ) : (
             messages.map((message) => (
@@ -83,7 +92,7 @@ export function ChatBox() {
           <Textarea
             value={input}
             onChange={(event) => setInput(event.target.value)}
-            placeholder="Ask the assistant..."
+            placeholder="Pergunte ao assistente..."
             className="min-h-12 resize-none"
           />
           {isBusy ? (
@@ -91,13 +100,13 @@ export function ChatBox() {
               type="button"
               size="icon"
               variant="secondary"
-              aria-label="Stop response"
+              aria-label="Parar resposta"
               onClick={() => void stop()}
             >
               <SquareIcon />
             </Button>
           ) : (
-            <Button type="submit" size="icon" aria-label="Send message">
+            <Button type="submit" size="icon" aria-label="Enviar mensagem">
               <SendIcon />
             </Button>
           )}

@@ -48,7 +48,7 @@ export default async function DashboardPage() {
             Proximum Exemplar
           </Link>
           <div className="flex items-center gap-3">
-            <Badge variant="secondary">Next.js 16 template</Badge>
+            <Badge variant="secondary">Template Next.js 16</Badge>
             <UserMenu />
           </div>
         </div>
@@ -59,56 +59,57 @@ export default async function DashboardPage() {
           <div className="grid gap-4 sm:grid-cols-3">
             <Card>
               <CardHeader className="pb-2">
-                <CardDescription>Projects</CardDescription>
+                <CardDescription>Projetos</CardDescription>
                 <CardTitle className="text-3xl">{projects.length}</CardTitle>
               </CardHeader>
               <CardContent className="text-muted-foreground flex items-center gap-2 text-sm">
                 <FolderKanbanIcon className="size-4" />
-                Drizzle-owned records
+                Registros gerenciados pelo Drizzle
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="pb-2">
-                <CardDescription>Tasks</CardDescription>
+                <CardDescription>Tarefas</CardDescription>
                 <CardTitle className="text-3xl">{tasks.length}</CardTitle>
               </CardHeader>
               <CardContent className="text-muted-foreground flex items-center gap-2 text-sm">
                 <ServerCogIcon className="size-4" />
-                Postgres-backed queue
+                Fila persistida no Postgres
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="pb-2">
-                <CardDescription>Runtime</CardDescription>
+                <CardDescription>Execução</CardDescription>
                 <CardTitle className="text-3xl">4</CardTitle>
               </CardHeader>
               <CardContent className="text-muted-foreground flex items-center gap-2 text-sm">
                 <DatabaseIcon className="size-4" />
-                Neon, Upstash, Blob, AI
+                Neon, Upstash, Blob, IA
               </CardContent>
             </Card>
           </div>
 
           <Card>
             <CardHeader>
-              <CardTitle>Projects</CardTitle>
+              <CardTitle>Projetos</CardTitle>
               <CardDescription>
-                Server-rendered reads with Server Action mutations.
+                Leituras renderizadas no servidor com mutações via Server
+                Actions.
               </CardDescription>
             </CardHeader>
             <CardContent>
               {projects.length === 0 ? (
                 <div className="text-muted-foreground rounded-md border border-dashed p-6 text-sm">
-                  Create a project to verify Clerk ownership, Drizzle writes,
-                  and dashboard revalidation.
+                  Crie um projeto para validar propriedade via Clerk, escritas
+                  com Drizzle e revalidação do painel.
                 </div>
               ) : (
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Name</TableHead>
-                      <TableHead>Description</TableHead>
-                      <TableHead>Created</TableHead>
+                      <TableHead>Nome</TableHead>
+                      <TableHead>Descrição</TableHead>
+                      <TableHead>Criado em</TableHead>
                       <TableHead className="w-12" />
                     </TableRow>
                   </TableHeader>
@@ -119,10 +120,10 @@ export default async function DashboardPage() {
                           {project.name}
                         </TableCell>
                         <TableCell className="text-muted-foreground max-w-md truncate">
-                          {project.description || "No description"}
+                          {project.description || "Sem descrição"}
                         </TableCell>
                         <TableCell>
-                          {project.createdAt.toLocaleDateString()}
+                          {project.createdAt.toLocaleDateString("pt-BR")}
                         </TableCell>
                         <TableCell>
                           <form action={deleteProjectAction}>
@@ -135,7 +136,7 @@ export default async function DashboardPage() {
                               type="submit"
                               size="icon"
                               variant="ghost"
-                              aria-label={`Delete ${project.name}`}
+                              aria-label={`Excluir ${project.name}`}
                             >
                               <Trash2Icon />
                             </Button>
@@ -158,9 +159,10 @@ export default async function DashboardPage() {
         <aside className="space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle>Create project</CardTitle>
+              <CardTitle>Criar projeto</CardTitle>
               <CardDescription>
-                Uses the internal user ID, never the Clerk ID, for ownership.
+                Usa o ID interno do usuário, nunca o ID do Clerk, para
+                propriedade.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -170,8 +172,10 @@ export default async function DashboardPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Runtime endpoints</CardTitle>
-              <CardDescription>Typed APIs and route handlers.</CardDescription>
+              <CardTitle>Endpoints de execução</CardTitle>
+              <CardDescription>
+                APIs tipadas e manipuladores de rota.
+              </CardDescription>
             </CardHeader>
             <CardContent className="grid gap-2 text-sm">
               {[

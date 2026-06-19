@@ -7,7 +7,7 @@ export function LoginButton() {
     <SignInButton mode="redirect">
       <Button>
         <LogInIcon />
-        Sign in
+        Entrar
       </Button>
     </SignInButton>
   );

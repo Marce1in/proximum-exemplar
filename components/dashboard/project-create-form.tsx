@@ -17,7 +17,7 @@ function SubmitButton() {
   return (
     <Button type="submit" disabled={pending}>
       <PlusIcon />
-      {pending ? "Creating" : "Create project"}
+      {pending ? "Criando" : "Criar projeto"}
     </Button>
   );
 }
@@ -26,21 +26,21 @@ export function ProjectCreateForm({ action }: ProjectCreateFormProps) {
   return (
     <form action={action} className="grid gap-4">
       <div className="grid gap-2">
-        <Label htmlFor="project-name">Name</Label>
+        <Label htmlFor="project-name">Nome</Label>
         <Input
           id="project-name"
           name="name"
-          placeholder="Demo workflow"
+          placeholder="Fluxo de demonstração"
           maxLength={120}
           required
         />
       </div>
       <div className="grid gap-2">
-        <Label htmlFor="project-description">Description</Label>
+        <Label htmlFor="project-description">Descrição</Label>
         <Textarea
           id="project-description"
           name="description"
-          placeholder="What this project is trying to prove"
+          placeholder="O que este projeto deve validar"
           maxLength={2000}
           className="min-h-24 resize-none"
         />

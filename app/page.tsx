@@ -55,8 +55,8 @@ type CheckResult = Pick<ServiceCheck, "state" | "detail" | "meta">;
 
 const stateLabels: Record<CheckState, string> = {
   ok: "OK",
-  warn: "Needs config",
-  error: "Failed",
+  warn: "Configurar",
+  error: "Falhou",
 };
 
 const stateStyles: Record<CheckState, string> = {
@@ -92,8 +92,8 @@ async function runServiceCheck(
     return {
       ...input,
       state: "error",
-      detail: "The service check failed. See the Vercel function logs.",
-      meta: error instanceof Error ? error.name : "Unknown error",
+      detail: "A verificação do serviço falhou. Veja os logs da função Vercel.",
+      meta: error instanceof Error ? error.name : "Erro desconhecido",
       latencyMs: Math.max(1, Math.round(performance.now() - startedAt)),
     };
   }
@@ -105,7 +105,7 @@ async function getServiceChecks() {
       {
         id: "clerk",
         label: "Clerk",
-        provider: "Auth",
+        provider: "Autenticação",
         icon: ShieldCheckIcon,
       },
       async () => {
@@ -114,8 +114,8 @@ async function getServiceChecks() {
         if (!auth.userId) {
           return {
             state: "ok",
-            detail: "Clerk is configured and this visitor is signed out.",
-            meta: "Public session",
+            detail: "Clerk está configurado e este visitante está sem sessão.",
+            meta: "Sessão pública",
           };
         }
 
@@ -123,7 +123,8 @@ async function getServiceChecks() {
 
         return {
           state: "ok",
-          detail: "Signed-in Clerk user is mapped to an internal users row.",
+          detail:
+            "Usuário autenticado no Clerk está mapeado para uma linha interna em users.",
           meta: `users.id ${internalUser.id.slice(0, 8)}`,
         };
       },
@@ -141,8 +142,8 @@ async function getServiceChecks() {
 
         return {
           state: "ok",
-          detail: "Connected through Drizzle and queried the users table.",
-          meta: `${userCount} mapped user${userCount === 1 ? "" : "s"}`,
+          detail: "Conectado via Drizzle e consulta na tabela users concluída.",
+          meta: `${userCount} usuário${userCount === 1 ? "" : "s"} mapeado${userCount === 1 ? "" : "s"}`,
         };
       },
     ),
@@ -162,7 +163,7 @@ async function getServiceChecks() {
 
         return {
           state: pong === "PONG" ? "ok" : "warn",
-          detail: "PING and a short-lived cache write completed.",
+          detail: "PING e escrita temporária no cache concluídos.",
           meta: `TTL ${ttl}s`,
         };
       },
@@ -171,7 +172,7 @@ async function getServiceChecks() {
       {
         id: "blob",
         label: "Vercel Blob",
-        provider: "Object storage",
+        provider: "Armazenamento de objetos",
         icon: HardDriveUploadIcon,
       },
       async () => {
@@ -179,8 +180,8 @@ async function getServiceChecks() {
 
         return {
           state: "ok",
-          detail: "Read-write token can list the private Blob store.",
-          meta: `${result.objectCount} health object${result.objectCount === 1 ? "" : "s"}`,
+          detail: "Token de leitura e escrita consegue listar o Blob privado.",
+          meta: `${result.objectCount} objeto${result.objectCount === 1 ? "" : "s"} de saúde`,
         };
       },
     ),
@@ -188,13 +189,13 @@ async function getServiceChecks() {
       {
         id: "cron",
         label: "Vercel Cron",
-        provider: "Scheduler",
+        provider: "Agendador",
         icon: ServerCogIcon,
       },
       async () => ({
         state: env.CRON_SECRET.length >= 16 ? "ok" : "warn",
-        detail: "Cron route has a bearer secret configured.",
-        meta: "Daily schedule",
+        detail: "A rota de cron tem um segredo bearer configurado.",
+        meta: "Agenda diária",
       }),
     ),
     runServiceCheck(
@@ -211,17 +212,17 @@ async function getServiceChecks() {
           return {
             state: result.selectedModel ? "ok" : "warn",
             detail: result.selectedModel
-              ? "Authenticated with OpenRouter and loaded the selected model from the catalog."
-              : "OpenRouter is reachable, but the selected model was not found.",
-            meta: `${env.OPENROUTER_DEFAULT_MODEL} · ${result.modelCount} models`,
+              ? "Autenticado no OpenRouter e modelo selecionado carregado do catálogo."
+              : "OpenRouter está acessível, mas o modelo selecionado não foi encontrado.",
+            meta: `${env.OPENROUTER_DEFAULT_MODEL} · ${result.modelCount} modelos`,
           };
         }
 
         return {
           state: env.GOOGLE_GENERATIVE_AI_API_KEY ? "ok" : "warn",
           detail: env.GOOGLE_GENERATIVE_AI_API_KEY
-            ? "Selected direct AI provider has a server API key."
-            : "Selected direct AI provider is waiting on a real API key.",
+            ? "O provedor direto de IA selecionado tem uma chave de servidor."
+            : "O provedor direto de IA selecionado aguarda uma chave real.",
           meta: env.AI_DEFAULT_MODEL,
         };
       },
@@ -285,31 +286,32 @@ export default async function Home() {
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1fr)_360px] lg:px-8">
           <div className="flex flex-col justify-center gap-6">
             <div className="flex flex-wrap gap-2">
-              <Badge variant="secondary">Live service console</Badge>
+              <Badge variant="secondary">Console de serviços ao vivo</Badge>
               <Badge variant="outline">Vercel Marketplace</Badge>
-              <Badge variant="outline">Next.js App Router</Badge>
+              <Badge variant="outline">App Router do Next.js</Badge>
             </div>
             <div className="space-y-4">
               <h1 className="max-w-3xl text-4xl font-semibold tracking-normal sm:text-5xl">
                 Proximum Exemplar
               </h1>
               <p className="text-muted-foreground max-w-2xl text-lg leading-8">
-                The homepage runs real server checks against the connected auth,
-                database, Redis, object storage, cron, and AI configuration.
+                A página inicial executa verificações reais no servidor contra
+                autenticação, banco de dados, Redis, armazenamento de objetos,
+                cron e configuração de IA.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <Button asChild size="lg">
                 <Link href="/dashboard">
                   <FolderKanbanIcon />
-                  Open dashboard
+                  Abrir painel
                 </Link>
               </Button>
               {auth.userId ? (
                 <div className="flex items-center gap-3">
                   <UserMenu />
                   <span className="text-muted-foreground text-sm">
-                    Clerk session active
+                    Sessão do Clerk ativa
                   </span>
                 </div>
               ) : (
@@ -321,7 +323,7 @@ export default async function Home() {
           <div className="bg-background/90 grid content-start gap-3 rounded-md border p-4">
             <div className="flex items-center justify-between gap-4">
               <div>
-                <p className="text-sm font-medium">Current deployment</p>
+                <p className="text-sm font-medium">Deploy atual</p>
                 <p className="text-muted-foreground text-xs">
                   {process.env.VERCEL_ENV ?? env.NODE_ENV}
                 </p>
@@ -329,7 +331,7 @@ export default async function Home() {
               <Button asChild variant="outline" size="sm">
                 <Link href="/">
                   <RefreshCwIcon />
-                  Refresh
+                  Atualizar
                 </Link>
               </Button>
             </div>
@@ -342,12 +344,12 @@ export default async function Home() {
               <div className="rounded-md border p-3">
                 <TriangleAlertIcon className="mb-2 size-4 text-amber-600" />
                 <p className="text-2xl font-semibold">{warningCount}</p>
-                <p className="text-muted-foreground text-xs">Config</p>
+                <p className="text-muted-foreground text-xs">Configurar</p>
               </div>
               <div className="rounded-md border p-3">
                 <CloudIcon className="text-destructive mb-2 size-4" />
                 <p className="text-2xl font-semibold">{errorCount}</p>
-                <p className="text-muted-foreground text-xs">Failed</p>
+                <p className="text-muted-foreground text-xs">Falhas</p>
               </div>
             </div>
           </div>
