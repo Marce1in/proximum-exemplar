@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   description: "Full-stack Next.js hackathon template",
 };
 
+const clerkProxyUrl = process.env.NEXT_PUBLIC_CLERK_PROXY_URL || undefined;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,7 +34,7 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col">
         <ClerkProvider
-          proxyUrl="/api/clerk-proxy"
+          proxyUrl={clerkProxyUrl}
           appearance={{
             cssLayerName: "clerk",
           }}
