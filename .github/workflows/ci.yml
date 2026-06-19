@@ -10,11 +10,6 @@ jobs:
   ci:
     runs-on: ubuntu-latest
 
-    env:
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,16 +34,3 @@ jobs:
 
       - name: Typecheck
         run: pnpm typecheck
-
-      - name: Vercel build
-        run: |
-          if [ "${GITHUB_REF}" = "refs/heads/main" ]; then
-            VERCEL_ENVIRONMENT="production"
-            VERCEL_BUILD_FLAG="--prod"
-          else
-            VERCEL_ENVIRONMENT="preview"
-            VERCEL_BUILD_FLAG=""
-          fi
-
-          pnpm dlx vercel pull --yes --environment="$VERCEL_ENVIRONMENT" --token="$VERCEL_TOKEN"
-          pnpm dlx vercel build $VERCEL_BUILD_FLAG --token="$VERCEL_TOKEN"
