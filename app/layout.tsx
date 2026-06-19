@@ -32,6 +32,7 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col">
         <ClerkProvider
+          proxyUrl="/api/clerk-proxy"
           appearance={{
             cssLayerName: "clerk",
           }}
