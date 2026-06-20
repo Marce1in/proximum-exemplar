@@ -1,189 +1,318 @@
 {
   "brand": {
-    "name": "Hub Family",
-    "subtitle": "Portal do Provedor",
+    "name": "HUB Family",
+    "tagline": "Cuidado conectado para sua família Unimed.",
     "primaryColor": "#2B985E"
   },
-  "directoryProvider": {
-    "name": "Dra. Sarah Chen",
-    "role": "Diretora Médica",
-    "avatarUrl": "/mock/hub-family/doctor-sarah.png"
+  "start": {
+    "title": "HUB Family",
+    "subtitle": "Cuidado conectado para sua família Unimed.",
+    "buttonLabel": "Acessar minha família",
+    "helperText": "Seguro e exclusivo para clientes Unimed."
   },
-  "recordProvider": {
-    "name": "Dr. Julian Vance",
-    "role": "Cardiologista",
-    "avatarUrl": "/mock/hub-family/doctor-julian.png"
+  "navigation": [
+    {
+      "label": "Dashboard",
+      "href": "/medico",
+      "icon": "dashboard"
+    },
+    {
+      "label": "Family",
+      "href": "/familia",
+      "icon": "family"
+    },
+    {
+      "label": "Health",
+      "href": "/monitoramento",
+      "icon": "health"
+    },
+    {
+      "label": "Profile",
+      "href": "/familia/helena",
+      "icon": "profile"
+    }
+  ],
+  "family": {
+    "title": "Minha Família",
+    "description": "Gerencie o acesso e as informações de saúde dos seus dependentes.",
+    "members": [
+      {
+        "id": "helena",
+        "name": "Helena",
+        "relationship": "mãe",
+        "age": "64 anos",
+        "avatarUrl": "/mock/hub-family/helena.png",
+        "status": "Acesso autorizado",
+        "statusTone": "authorized",
+        "href": "/familia/helena"
+      },
+      {
+        "id": "roberto",
+        "name": "Roberto",
+        "relationship": "pai",
+        "age": "68 anos",
+        "avatarUrl": "/mock/hub-family/roberto-family.png",
+        "status": "Acesso pendente",
+        "statusTone": "pending",
+        "href": "/solicitar-acesso"
+      },
+      {
+        "id": "ana",
+        "name": "Ana",
+        "relationship": "filha",
+        "age": "15 anos",
+        "avatarUrl": "/mock/hub-family/ana.png",
+        "status": "Dependente",
+        "statusTone": "dependent",
+        "href": "/familia"
+      }
+    ]
   },
-  "directory": {
-    "title": "Diretório de Pacientes",
-    "description": "Gerencie e monitore seus grupos de pacientes clínicos.",
-    "searchPlaceholder": "Pesquisar pacientes, registros ou famílias...",
-    "familyToggleLabel": "Agrupar por Família",
-    "metrics": {
-      "totalPatients": {
-        "label": "Total de Pacientes",
-        "value": "1.284",
-        "description": "+12% desde o mês passado"
-      },
-      "attention": {
-        "label": "Requer Atenção",
-        "value": "24",
-        "tags": ["12 HIPERTENSÃO", "8 GLICOSE CRÍTICA"]
-      },
-      "wellbeing": {
-        "label": "Índice de Bem-estar",
-        "value": 88
-      }
-    },
-    "patients": [
+  "profile": {
+    "id": "helena",
+    "name": "Helena",
+    "age": "64 anos",
+    "role": "Paciente Titular",
+    "avatarUrl": "/mock/hub-family/helena-profile.png",
+    "actions": [
       {
-        "id": "#4492-B",
-        "slug": "eleanor-johnson",
-        "name": "Eleanor Johnson",
-        "initials": "EJ",
-        "age": 64,
-        "status": "Estável",
-        "statusTone": "stable",
-        "heartRate": 72,
-        "heartRateLabel": "méd",
-        "glucose": 110,
-        "glucoseLabel": "mg/dL"
+        "label": "Agendar Consulta",
+        "href": "/permissoes",
+        "tone": "primary",
+        "icon": "calendar"
       },
       {
-        "id": "#8821-C",
-        "slug": "marcus-sterling",
-        "name": "Marcus Sterling",
-        "initials": "MS",
-        "age": 72,
-        "status": "Atenção",
-        "statusTone": "attention",
-        "heartRate": 104,
-        "heartRateLabel": "Alto",
-        "glucose": 142,
-        "glucoseLabel": "Elevado",
-        "avatarUrl": "/mock/hub-family/marcus-sterling.png",
-        "actionLabel": "Revisar"
+        "label": "Histórico Clínico",
+        "href": "/monitoramento",
+        "tone": "secondary",
+        "icon": "history"
       },
       {
-        "id": "#1029-A",
-        "slug": "alice-wong",
-        "name": "Alice Wong",
-        "initials": "AW",
-        "age": 29,
-        "status": "Estável",
-        "statusTone": "stable",
-        "heartRate": 68,
-        "heartRateLabel": "Normal",
-        "glucose": 92,
-        "glucoseLabel": "Normal"
-      },
-      {
-        "id": "#5511-D",
-        "slug": "robert-taylor",
-        "name": "Robert Taylor",
-        "initials": "RT",
-        "age": 41,
-        "status": "Estável",
-        "statusTone": "stable",
-        "heartRate": 81,
-        "heartRateLabel": "Normal",
-        "glucose": 105,
-        "glucoseLabel": "Normal"
+        "label": "Modo Emergência",
+        "href": "/emergencia",
+        "tone": "danger",
+        "icon": "emergency"
       }
     ],
-    "pagination": {
-      "summary": "Exibindo 1 a 4 de 1.284 pacientes",
-      "pages": [1, 2, 3],
-      "activePage": 1
-    },
-    "recordPreviewSlug": "camila-soares"
-  },
-  "patientRecord": {
-    "slug": "camila-soares",
-    "name": "Camila Soares",
-    "id": "#88219-B",
-    "status": "Ativo",
-    "avatarUrl": "/mock/hub-family/camila-soares.png",
-    "demographics": {
-      "age": "34 anos",
-      "gender": "Feminino",
-      "bloodType": "A+ Positivo",
-      "location": "Lisboa, Portugal"
-    },
-    "searchPlaceholder": "Buscar paciente, registro ou laboratório...",
-    "vitals": [
-      {
-        "id": "heart-rate",
-        "label": "Frequência Cardíaca",
-        "value": "72",
-        "unit": "bpm",
-        "status": "2% normal",
-        "trend": "down",
-        "rangeLabel": "Últimos 7 dias",
-        "chart": [44, 66, 58, 78, 52, 62, 56]
-      },
-      {
-        "id": "glucose",
-        "label": "Glicose",
-        "value": "94",
-        "unit": "mg/dL",
-        "status": "Estável",
-        "trend": "stable",
-        "rangeLabel": "Últimos 7 dias",
-        "chart": [66, 54, 60, 74, 64, 78, 55]
-      }
-    ],
-    "timeline": [
-      {
-        "type": "check",
-        "title": "Check-in Diário Concluído",
-        "description": "Sintomas auto-relatados: Nenhum. Sentindo-se com energia hoje.",
-        "time": "Hoje, 09:15 AM"
-      },
-      {
-        "type": "lab",
-        "title": "Resultados de Exame de Sangue Carregados",
-        "description": "Painel: Metabólico Abrangente. Todos os valores dentro da faixa normal, exceto Vit-D.",
-        "time": "Ontem, 04:30 PM",
-        "attachment": "Relatorio_Lab_Jan.pdf"
-      },
-      {
-        "type": "therapy",
-        "title": "Sessão de Fisioterapia",
-        "description": "Sessão #4 de 12. Mobilidade melhorada no joelho esquerdo (aumento de 45°).",
-        "time": "12 de Fev, 11:00 AM"
-      }
-    ],
-    "familyAccess": [
-      {
-        "name": "Roberto Soares",
-        "relationship": "Pai / Contato de Emergência",
-        "avatarUrl": "/mock/hub-family/roberto-soares.png"
-      },
-      {
-        "name": "Lucas Soares",
-        "relationship": "Irmão / Acesso Secundário",
-        "avatarUrl": "/mock/hub-family/lucas-soares.png"
-      }
-    ],
+    "conditions": ["Diabetes tipo 2", "Hipertensão"],
+    "allergies": ["Dipirona"],
     "medications": [
       {
-        "name": "Metformina 500mg",
-        "instructions": "Duas vezes ao dia com as refeições",
-        "tone": "lime"
+        "name": "Metformina",
+        "instructions": "Uso diário"
       },
       {
-        "name": "Vitamina D3 2000UI",
-        "instructions": "Uma vez ao dia pela manhã",
-        "tone": "green"
+        "name": "Losartana",
+        "instructions": "Uso diário"
       }
     ],
-    "nextSession": {
-      "label": "Próxima Sessão",
-      "date": "Sexta, 24 de Fev",
-      "time": "10:30 AM",
-      "doctor": "Dr. Vance",
-      "specialty": "Cardiologia"
+    "emergencyContact": {
+      "name": "Carlos",
+      "relationship": "Filho",
+      "phoneLabel": "Ligar para Carlos",
+      "messageLabel": "Enviar Mensagem"
+    },
+    "referenceDoctor": {
+      "name": "Médico da família Unimed",
+      "specialty": "Clínica Comunitária"
     }
+  },
+  "monitoring": {
+    "title": "Monitoramento & Dispositivos",
+    "description": "Acompanhe as métricas de saúde conectadas em tempo real.",
+    "devices": [
+      {
+        "name": "Sensor de Glicose",
+        "description": "Libre ou similar",
+        "status": "conectado",
+        "statusTone": "connected",
+        "detail": "Sincronizado há 2 min",
+        "icon": "sensor"
+      },
+      {
+        "name": "Smartwatch",
+        "description": "Apple Watch, Garmin, etc.",
+        "status": "não conectado",
+        "statusTone": "disconnected",
+        "actionLabel": "Conectar Dispositivo",
+        "icon": "watch"
+      }
+    ],
+    "records": [
+      {
+        "label": "Glicemia",
+        "value": "110",
+        "unit": "mg/dL",
+        "trend": "Estável nas últimas 2 horas",
+        "description": "Última glicose informada (dado demonstrativo)",
+        "icon": "glucose"
+      },
+      {
+        "label": "Atividade",
+        "value": "3.200",
+        "unit": "passos",
+        "trend": "Meta: 10.000",
+        "progress": 32,
+        "description": "Última atividade registrada (dado demonstrativo)",
+        "icon": "activity"
+      }
+    ],
+    "notice": "O HUB Family funciona mesmo sem dispositivo conectado."
+  },
+  "permissions": {
+    "requester": "Carlos",
+    "title": "Permissões de Acesso",
+    "description": "Carlos deseja acompanhar suas informações no HUB Family. Escolha o que deseja compartilhar:",
+    "sections": [
+      {
+        "title": "Dados de Saúde",
+        "items": [
+          {
+            "label": "Histórico médico essencial",
+            "description": "Diagnósticos anteriores, cirurgias e condições crônicas.",
+            "checked": true,
+            "icon": "history"
+          },
+          {
+            "label": "Remédios contínuos",
+            "description": "Medicações atuais e histórico de prescrições.",
+            "checked": true,
+            "icon": "medication"
+          },
+          {
+            "label": "Alergias",
+            "description": "Reações alérgicas a medicamentos ou alimentos.",
+            "checked": true,
+            "icon": "allergy"
+          },
+          {
+            "label": "Dados de monitoramento",
+            "description": "Pressão arterial, glicemia e outros sinais vitais contínuos.",
+            "checked": false,
+            "icon": "monitoring"
+          }
+        ]
+      },
+      {
+        "title": "Contato e Acesso",
+        "items": [
+          {
+            "label": "Contato de emergência",
+            "description": "Permite acionar familiares em caso de urgência.",
+            "checked": true,
+            "icon": "emergency"
+          },
+          {
+            "label": "Permitir acesso ao médico da família",
+            "description": "Visualização do perfil completo pelo médico responsável.",
+            "checked": false,
+            "icon": "doctor"
+          },
+          {
+            "label": "Permitir acesso emergencial ao plantonista",
+            "description": "Acesso temporário em caso de entrada no pronto-socorro.",
+            "checked": false,
+            "icon": "hospital"
+          }
+        ]
+      }
+    ],
+    "buttonLabel": "Autorizar compartilhamento",
+    "footnote": "Você pode alterar estas permissões a qualquer momento nas configurações do seu perfil."
+  },
+  "accessRequest": {
+    "title": "Você deseja solicitar acesso aos dados de saúde de Helena?",
+    "description": "Ela poderá escolher quais informações deseja compartilhar.",
+    "buttonLabel": "Enviar solicitação",
+    "backLabel": "Voltar",
+    "securityLabel": "Ambiente seguro e criptografado"
+  },
+  "emergency": {
+    "exitLabel": "Sair do Modo Emergência",
+    "title": "Resumo Emergencial",
+    "subtitle": "Acesso rápido para plantonistas",
+    "patient": {
+      "name": "Helena",
+      "age": "64 anos",
+      "avatarUrl": "/mock/hub-family/helena-emergency.png",
+      "status": "Dados liberados para plantonista"
+    },
+    "conditions": ["Diabetes tipo 2", "Hipertensão"],
+    "allergies": ["Dipirona"],
+    "medications": ["Metformina", "Losartana"],
+    "emergencyContact": {
+      "name": "Carlos",
+      "relationship": "Filho / Responsável",
+      "phoneLabel": "Ligar para Carlos",
+      "messageLabel": "Enviar Mensagem"
+    }
+  },
+  "doctorDashboard": {
+    "provider": {
+      "name": "Dr. Sarah Jenkins",
+      "role": "Cardiology Specialist",
+      "avatarUrl": "/mock/hub-family/doctor-sarah-jenkins.png"
+    },
+    "title": "Patient Directory",
+    "description": "Manage and monitor your family patient groups.",
+    "searchPlaceholder": "Search patients, ID, or family...",
+    "metrics": [
+      {
+        "label": "Total Patients",
+        "value": "1,248",
+        "description": "+12 this month",
+        "tone": "primary",
+        "icon": "groups"
+      },
+      {
+        "label": "Needs Attention",
+        "value": "24",
+        "description": "High Glucose / BPM Alerts",
+        "tone": "danger",
+        "icon": "warning"
+      },
+      {
+        "label": "Active Family Groups",
+        "value": "342",
+        "description": "Stable overall",
+        "tone": "neutral",
+        "icon": "family"
+      }
+    ],
+    "tableTitle": "Recent Vitals Updates",
+    "tableSubtitle": "Last 24h",
+    "patients": [
+      {
+        "name": "Marcus Rivera",
+        "id": "PT-8821A",
+        "initials": "MR",
+        "familyGroup": "Rivera Family",
+        "lastMeasurement": "142/90 mmHg",
+        "measurementDetail": "Elevated BP - 10m ago",
+        "status": "Attention",
+        "statusTone": "attention"
+      },
+      {
+        "name": "Elena Chen",
+        "id": "PT-4492B",
+        "initials": "EC",
+        "familyGroup": "Chen-Wu Family",
+        "lastMeasurement": "98 mg/dL",
+        "measurementDetail": "Normal Glucose - 1h ago",
+        "status": "Stable",
+        "statusTone": "stable"
+      },
+      {
+        "name": "Thomas Smith",
+        "id": "PT-1109C",
+        "initials": "TS",
+        "familyGroup": "Smith Family",
+        "lastMeasurement": "72 BPM",
+        "measurementDetail": "Resting HR - 2h ago",
+        "status": "Stable",
+        "statusTone": "stable"
+      }
+    ],
+    "paginationSummary": "Showing 1-3 of 1,248 patients"
   }
 }

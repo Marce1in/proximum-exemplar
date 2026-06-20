@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { PatientDirectory } from "@/components/hub-family/hub-family-dashboard";
-import { getDirectoryMock } from "@/lib/mock/hub-family";
+import { HubFamilyStartScreen } from "@/components/hub-family/hub-family-dashboard";
+import { getHubFamilyStartMock } from "@/lib/mock/hub-family";
 
 export const metadata: Metadata = {
-  title: "Diretório de Pacientes | Hub Family",
-  description: "Mock do diretório clínico Hub Family carregado por JSON local.",
+  title: "HUB Family | Início",
+  description: "Mock mobile do início HUB Family carregado por JSON local.",
 };
 
 export default function Home() {
-  return <PatientDirectory data={getDirectoryMock()} />;
+  return <HubFamilyStartScreen data={getHubFamilyStartMock()} />;
 }

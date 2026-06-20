@@ -1,152 +1,224 @@
+import "server-only";
+
 import mockPayload from "@/data/hub-family.mock.json";
 
-export type PatientStatusTone = "stable" | "attention";
-
-export type HubFamilyProvider = {
+export type HubFamilyBrand = {
   name: string;
-  role: string;
-  avatarUrl: string;
+  tagline: string;
+  primaryColor: string;
 };
 
-export type DirectoryPatient = {
-  id: string;
-  slug: string;
-  name: string;
-  initials: string;
-  age: number;
-  status: string;
-  statusTone: PatientStatusTone;
-  heartRate: number;
-  heartRateLabel: string;
-  glucose: number;
-  glucoseLabel: string;
-  avatarUrl?: string;
-  actionLabel?: string;
-};
-
-export type PatientVital = {
-  id: "heart-rate" | "glucose";
+export type HubFamilyNavigationItem = {
   label: string;
-  value: string;
-  unit: string;
-  status: string;
-  trend: "down" | "stable";
-  rangeLabel: string;
-  chart: number[];
+  href: string;
+  icon: "dashboard" | "family" | "health" | "profile";
 };
 
-export type TimelineEvent = {
-  type: "check" | "lab" | "therapy";
-  title: string;
-  description: string;
-  time: string;
-  attachment?: string;
-};
-
-export type FamilyAccess = {
+export type FamilyMember = {
+  id: string;
   name: string;
   relationship: string;
+  age: string;
   avatarUrl: string;
+  status: string;
+  statusTone: "authorized" | "pending" | "dependent";
+  href: string;
+};
+
+export type ProfileAction = {
+  label: string;
+  href: string;
+  tone: "primary" | "secondary" | "danger";
+  icon: "calendar" | "history" | "emergency";
 };
 
 export type Medication = {
   name: string;
   instructions: string;
-  tone: "lime" | "green";
 };
 
-export type PatientRecord = {
-  slug: string;
+export type MonitoringDevice = {
+  name: string;
+  description: string;
+  status: string;
+  statusTone: "connected" | "disconnected";
+  detail?: string;
+  actionLabel?: string;
+  icon: "sensor" | "watch";
+};
+
+export type MonitoringRecord = {
+  label: string;
+  value: string;
+  unit: string;
+  trend: string;
+  progress?: number;
+  description: string;
+  icon: "glucose" | "activity";
+};
+
+export type PermissionItem = {
+  label: string;
+  description: string;
+  checked: boolean;
+  icon:
+    | "history"
+    | "medication"
+    | "allergy"
+    | "monitoring"
+    | "emergency"
+    | "doctor"
+    | "hospital";
+};
+
+export type PermissionSection = {
+  title: string;
+  items: PermissionItem[];
+};
+
+export type DoctorMetric = {
+  label: string;
+  value: string;
+  description: string;
+  tone: "primary" | "danger" | "neutral";
+  icon: "groups" | "warning" | "family";
+};
+
+export type DoctorPatient = {
   name: string;
   id: string;
+  initials: string;
+  familyGroup: string;
+  lastMeasurement: string;
+  measurementDetail: string;
   status: string;
-  avatarUrl: string;
-  demographics: {
-    age: string;
-    gender: string;
-    bloodType: string;
-    location: string;
-  };
-  searchPlaceholder: string;
-  vitals: PatientVital[];
-  timeline: TimelineEvent[];
-  familyAccess: FamilyAccess[];
-  medications: Medication[];
-  nextSession: {
-    label: string;
-    date: string;
-    time: string;
-    doctor: string;
-    specialty: string;
-  };
+  statusTone: "attention" | "stable";
 };
 
 export type HubFamilyMock = {
-  brand: {
-    name: string;
+  brand: HubFamilyBrand;
+  start: {
+    title: string;
     subtitle: string;
-    primaryColor: string;
+    buttonLabel: string;
+    helperText: string;
   };
-  directoryProvider: HubFamilyProvider;
-  recordProvider: HubFamilyProvider;
-  directory: {
+  navigation: HubFamilyNavigationItem[];
+  family: {
+    title: string;
+    description: string;
+    members: FamilyMember[];
+  };
+  profile: {
+    id: string;
+    name: string;
+    age: string;
+    role: string;
+    avatarUrl: string;
+    actions: ProfileAction[];
+    conditions: string[];
+    allergies: string[];
+    medications: Medication[];
+    emergencyContact: {
+      name: string;
+      relationship: string;
+      phoneLabel: string;
+      messageLabel: string;
+    };
+    referenceDoctor: {
+      name: string;
+      specialty: string;
+    };
+  };
+  monitoring: {
+    title: string;
+    description: string;
+    devices: MonitoringDevice[];
+    records: MonitoringRecord[];
+    notice: string;
+  };
+  permissions: {
+    requester: string;
+    title: string;
+    description: string;
+    sections: PermissionSection[];
+    buttonLabel: string;
+    footnote: string;
+  };
+  accessRequest: {
+    title: string;
+    description: string;
+    buttonLabel: string;
+    backLabel: string;
+    securityLabel: string;
+  };
+  emergency: {
+    exitLabel: string;
+    title: string;
+    subtitle: string;
+    patient: {
+      name: string;
+      age: string;
+      avatarUrl: string;
+      status: string;
+    };
+    conditions: string[];
+    allergies: string[];
+    medications: string[];
+    emergencyContact: {
+      name: string;
+      relationship: string;
+      phoneLabel: string;
+      messageLabel: string;
+    };
+  };
+  doctorDashboard: {
+    provider: {
+      name: string;
+      role: string;
+      avatarUrl: string;
+    };
     title: string;
     description: string;
     searchPlaceholder: string;
-    familyToggleLabel: string;
-    metrics: {
-      totalPatients: {
-        label: string;
-        value: string;
-        description: string;
-      };
-      attention: {
-        label: string;
-        value: string;
-        tags: string[];
-      };
-      wellbeing: {
-        label: string;
-        value: number;
-      };
-    };
-    patients: DirectoryPatient[];
-    pagination: {
-      summary: string;
-      pages: number[];
-      activePage: number;
-    };
-    recordPreviewSlug: string;
+    metrics: DoctorMetric[];
+    tableTitle: string;
+    tableSubtitle: string;
+    patients: DoctorPatient[];
+    paginationSummary: string;
   };
-  patientRecord: PatientRecord;
 };
 
 const hubFamilyMock = mockPayload as HubFamilyMock;
 
-export function getHubFamilyBrand() {
-  return hubFamilyMock.brand;
+export function getHubFamilyMock() {
+  return hubFamilyMock;
 }
 
-export function getDirectoryMock() {
+export function getHubFamilyStartMock() {
   return {
     brand: hubFamilyMock.brand,
-    provider: hubFamilyMock.directoryProvider,
-    directory: hubFamilyMock.directory,
+    start: hubFamilyMock.start,
   };
 }
 
-export function getPatientRecordMock(patientId: string) {
-  if (patientId !== hubFamilyMock.patientRecord.slug) {
-    return null;
-  }
-
+export function getHubFamilyAppMock() {
   return {
     brand: hubFamilyMock.brand,
-    provider: hubFamilyMock.recordProvider,
-    patient: hubFamilyMock.patientRecord,
+    navigation: hubFamilyMock.navigation,
+    family: hubFamilyMock.family,
+    profile: hubFamilyMock.profile,
+    monitoring: hubFamilyMock.monitoring,
+    permissions: hubFamilyMock.permissions,
+    accessRequest: hubFamilyMock.accessRequest,
+    emergency: hubFamilyMock.emergency,
   };
 }
 
-export function getPatientRecordStaticParams() {
-  return [{ patientId: hubFamilyMock.patientRecord.slug }];
+export function getDoctorDashboardMock() {
+  return {
+    brand: hubFamilyMock.brand,
+    navigation: hubFamilyMock.navigation,
+    dashboard: hubFamilyMock.doctorDashboard,
+  };
 }
