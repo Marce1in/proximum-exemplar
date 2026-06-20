@@ -3,8 +3,8 @@ import { MonitoringScreen } from "@/components/hub-family/hub-family-dashboard";
 import { getHubFamilyAppMock } from "@/lib/mock/hub-family";
 
 export const metadata: Metadata = {
-  title: "Monitoramento | HUB Family",
-  description: "Mock mobile de dispositivos e monitoramento HUB Family.",
+  title: "Monitoramento | HUB Família",
+  description: "Protótipo mobile de dispositivos e monitoramento HUB Família.",
 };
 
 export default function MonitoringPage() {

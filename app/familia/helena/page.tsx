@@ -3,8 +3,8 @@ import { HelenaProfileScreen } from "@/components/hub-family/hub-family-dashboar
 import { getHubFamilyAppMock } from "@/lib/mock/hub-family";
 
 export const metadata: Metadata = {
-  title: "Perfil Helena | HUB Family",
-  description: "Mock mobile do perfil de saúde de Helena.",
+  title: "Perfil Helena | HUB Família",
+  description: "Protótipo mobile do perfil de saúde de Helena.",
 };
 
 export default function HelenaProfilePage() {

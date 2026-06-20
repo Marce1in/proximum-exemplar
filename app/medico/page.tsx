@@ -3,8 +3,8 @@ import { DoctorDashboardScreen } from "@/components/hub-family/hub-family-dashbo
 import { getDoctorDashboardMock } from "@/lib/mock/hub-family";
 
 export const metadata: Metadata = {
-  title: "Dashboard Médico | HUB Family",
-  description: "Mock desktop do dashboard médico HUB Family.",
+  title: "Painel médico | HUB Família",
+  description: "Protótipo desktop do painel médico HUB Família.",
 };
 
 export default function DoctorDashboardPage() {

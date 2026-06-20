@@ -173,9 +173,7 @@ function MobileScreen({
         )}
       >
         <BrandHeader brand={brand} right={right} />
-        <main className={cn("px-4 py-6", showNav && "pb-24")}>
-          {children}
-        </main>
+        <main className={cn("px-4 py-6", showNav && "pb-24")}>{children}</main>
         {showNav && navigation ? (
           <MobileBottomNav navigation={navigation} active={active} />
         ) : null}
@@ -363,7 +361,7 @@ function FamilyMemberCard({ member }: { member: FamilyMember }) {
         "group relative block overflow-hidden p-4 transition hover:-translate-y-0.5 hover:border-[#BDCABE]",
       )}
     >
-      <div className="absolute top-0 right-0 size-28 -translate-y-8 translate-x-8 rounded-bl-full bg-[#F2F9F5]" />
+      <div className="absolute top-0 right-0 size-28 translate-x-8 -translate-y-8 rounded-bl-full bg-[#F2F9F5]" />
 
       <div className="relative flex items-start justify-between gap-4">
         <div className="flex min-w-0 items-center gap-4">
@@ -433,7 +431,7 @@ export function HelenaProfileScreen({ data }: { data: AppData }) {
         className="mb-4 inline-flex items-center gap-2 text-xs font-medium text-[#3E4A3F]"
       >
         <ArrowLeftIcon aria-hidden="true" className="size-4" />
-        Voltar para Família
+        Voltar para família
       </Link>
 
       <section
@@ -514,7 +512,10 @@ export function HelenaProfileScreen({ data }: { data: AppData }) {
                     {medication.instructions}
                   </p>
                 </div>
-                <Link2Icon aria-hidden="true" className="size-4 text-[#6D7A6E]" />
+                <Link2Icon
+                  aria-hidden="true"
+                  className="size-4 text-[#6D7A6E]"
+                />
               </div>
             ))}
           </div>
@@ -523,13 +524,13 @@ export function HelenaProfileScreen({ data }: { data: AppData }) {
             className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg py-2 text-xs font-semibold text-[#2B985E] transition hover:bg-[#F2F9F5]"
           >
             <PlusIcon aria-hidden="true" className="size-3" />
-            Atualizar Receita
+            Atualizar receita
           </Link>
         </InfoCard>
 
         <InfoCard
           icon={PhoneIcon}
-          title="Contato de Emergência"
+          title="Contato de emergência"
           iconTone="text-[#2B985E]"
         >
           <div className="flex items-center justify-between">
@@ -558,7 +559,7 @@ export function HelenaProfileScreen({ data }: { data: AppData }) {
 
         <InfoCard
           icon={StethoscopeIcon}
-          title="Médico da Referência"
+          title="Médico de referência"
           iconTone="text-[#2B985E]"
         >
           <div className="flex items-center justify-between">
@@ -570,7 +571,10 @@ export function HelenaProfileScreen({ data }: { data: AppData }) {
                 {data.profile.referenceDoctor.specialty}
               </p>
             </div>
-            <HospitalIcon aria-hidden="true" className="size-5 text-[#BDCABE]" />
+            <HospitalIcon
+              aria-hidden="true"
+              className="size-5 text-[#BDCABE]"
+            />
           </div>
         </InfoCard>
       </div>
@@ -694,7 +698,7 @@ export function MonitoringScreen({ data }: { data: AppData }) {
 
       <section className="mb-7">
         <h2 className="mb-3 text-base font-semibold text-[#1A1C1E]">
-          Meus Dispositivos
+          Meus dispositivos
         </h2>
         <div className="space-y-3">
           {data.monitoring.devices.map((device) => (
@@ -705,7 +709,7 @@ export function MonitoringScreen({ data }: { data: AppData }) {
 
       <section>
         <h2 className="mb-3 text-base font-semibold text-[#1A1C1E]">
-          Últimos Registros
+          Últimos registros
         </h2>
         <div className="space-y-4">
           {data.monitoring.records.map((record) => (
@@ -789,10 +793,13 @@ function MonitoringRecordCard({ record }: { record: MonitoringRecord }) {
           <Icon aria-hidden="true" className="size-4" />
           {record.label}
         </div>
-        <MoreVerticalIcon aria-hidden="true" className="size-5 text-[#5D6461]" />
+        <MoreVerticalIcon
+          aria-hidden="true"
+          className="size-5 text-[#5D6461]"
+        />
       </div>
       <div className="flex items-end gap-2">
-        <strong className="text-5xl font-bold leading-none text-[#1A1C1E]">
+        <strong className="text-5xl leading-none font-bold text-[#1A1C1E]">
           {record.value}
         </strong>
         <span className="pb-1 text-sm text-[#5D6461]">{record.unit}</span>
@@ -840,7 +847,7 @@ export function PermissionsScreen({ data }: { data: AppData }) {
         <div className="space-y-5">
           {data.permissions.sections.map((section) => (
             <section key={section.title}>
-              <h2 className="mb-3 text-xs font-bold uppercase text-[#59605D]">
+              <h2 className="mb-3 text-xs font-bold text-[#59605D] uppercase">
                 {section.title}
               </h2>
               <div className="space-y-3">
@@ -883,14 +890,17 @@ function PermissionCard({ item }: { item: PermissionItem }) {
         <CheckCircle2Icon aria-hidden="true" className="size-3" />
       </span>
       <div className="min-w-0 flex-1">
-        <h3 className="text-sm font-semibold leading-5 text-[#1A1C1E]">
+        <h3 className="text-sm leading-5 font-semibold text-[#1A1C1E]">
           {item.label}
         </h3>
         <p className="mt-1 text-xs leading-5 text-[#5D6461]">
           {item.description}
         </p>
       </div>
-      <Icon aria-hidden="true" className="mt-1 size-5 shrink-0 text-[#BDCABE]" />
+      <Icon
+        aria-hidden="true"
+        className="mt-1 size-5 shrink-0 text-[#BDCABE]"
+      />
     </article>
   );
 }
@@ -907,7 +917,7 @@ export function AccessRequestScreen({ data }: { data: AppData }) {
             </span>
           </div>
 
-          <h1 className="text-2xl font-bold leading-8 text-[#1A1C1E]">
+          <h1 className="text-2xl leading-8 font-bold text-[#1A1C1E]">
             {data.accessRequest.title}
           </h1>
           <p className="mx-auto mt-3 max-w-64 text-sm leading-6 text-[#5D6461]">
@@ -1009,7 +1019,7 @@ export function EmergencyScreen({ data }: { data: AppData }) {
             </div>
           </InfoCard>
 
-          <InfoCard icon={PillIcon} title="Medicamentos Contínuos">
+          <InfoCard icon={PillIcon} title="Medicamentos contínuos">
             <div className="flex flex-wrap gap-2">
               {data.emergency.medications.map((medication) => (
                 <span
@@ -1025,7 +1035,7 @@ export function EmergencyScreen({ data }: { data: AppData }) {
 
           <section className={cn(cardClass, "p-4 text-center")}>
             <h2 className="mb-6 text-left text-lg font-bold text-[#1A1C1E]">
-              Contato de Emergência
+              Contato de emergência
             </h2>
             <span className="mx-auto flex size-16 items-center justify-center rounded-full bg-[#F0F0F3] text-[#59605D]">
               <UserIcon aria-hidden="true" className="size-7" />
@@ -1066,21 +1076,25 @@ export function DoctorDashboardScreen({ data }: { data: DoctorDashboardData }) {
         <div className="border-b border-[#DDE4E0] p-8">
           <Link href="/familia" className="flex items-center gap-3">
             <HubLogoMark className="size-7" />
-            <span className="text-xl font-bold leading-6 text-[#006A36]">
+            <span className="text-xl leading-6 font-bold text-[#006A36]">
               HUB
               <br />
-              Family
+              Família
             </span>
           </Link>
-          <p className="mt-3 text-xs font-semibold uppercase text-[#5D6461]">
-            Provider Portal
+          <p className="mt-3 text-xs font-semibold text-[#5D6461] uppercase">
+            Portal do profissional
           </p>
         </div>
 
         <nav className="flex-1 space-y-2 p-4">
-          <DesktopNavItem icon={LayoutDashboardIcon} label="Dashboard" />
-          <DesktopNavItem icon={UsersIcon} label="Patient Directory" active />
-          <DesktopNavItem icon={FileClockIcon} label="History" />
+          <DesktopNavItem icon={LayoutDashboardIcon} label="Painel" />
+          <DesktopNavItem
+            icon={UsersIcon}
+            label="Diretório de pacientes"
+            active
+          />
+          <DesktopNavItem icon={FileClockIcon} label="Histórico" />
         </nav>
 
         <div className="border-t border-[#DDE4E0] p-6">
@@ -1110,7 +1124,7 @@ export function DoctorDashboardScreen({ data }: { data: DoctorDashboardData }) {
             <div>
               <div className="mb-3 flex items-center gap-2 text-[#006A36] md:hidden">
                 <HubLogoMark />
-                <span className="text-sm font-bold">HUB Family</span>
+                <span className="text-sm font-bold">HUB Família</span>
               </div>
               <h1 className="text-2xl font-bold md:text-3xl">
                 {data.dashboard.title}
@@ -1130,7 +1144,7 @@ export function DoctorDashboardScreen({ data }: { data: DoctorDashboardData }) {
                 <input
                   type="search"
                   placeholder={data.dashboard.searchPlaceholder}
-                  className="h-11 w-full rounded-lg border border-[#DDE4E0] bg-white pr-3 pl-10 text-sm outline-none transition focus:border-[#2B985E] focus:ring-2 focus:ring-[#2B985E]/20"
+                  className="h-11 w-full rounded-lg border border-[#DDE4E0] bg-white pr-3 pl-10 text-sm transition outline-none focus:border-[#2B985E] focus:ring-2 focus:ring-[#2B985E]/20"
                 />
               </label>
               <button
@@ -1153,7 +1167,10 @@ export function DoctorDashboardScreen({ data }: { data: DoctorDashboardData }) {
           </section>
 
           <section
-            className={cn(cardClass, "overflow-hidden shadow-[0_4px_20px_rgba(0,153,81,0.08)]")}
+            className={cn(
+              cardClass,
+              "overflow-hidden shadow-[0_4px_20px_rgba(0,153,81,0.08)]",
+            )}
           >
             <div className="flex flex-col gap-4 border-b border-[#DDE4E0] p-5 md:flex-row md:items-center md:justify-between">
               <div className="flex items-center gap-2">
@@ -1167,11 +1184,11 @@ export function DoctorDashboardScreen({ data }: { data: DoctorDashboardData }) {
               <div className="grid grid-cols-2 gap-2 md:flex">
                 <button className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-[#DDE4E0] bg-white px-4 text-sm font-semibold text-[#5D6461]">
                   <ListFilterIcon aria-hidden="true" className="size-4" />
-                  Filter
+                  Filtrar
                 </button>
                 <button className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-[#DDE4E0] bg-white px-4 text-sm font-semibold text-[#5D6461]">
                   <ArrowUpIcon aria-hidden="true" className="size-4" />
-                  Sort
+                  Ordenar
                 </button>
               </div>
             </div>
@@ -1180,11 +1197,11 @@ export function DoctorDashboardScreen({ data }: { data: DoctorDashboardData }) {
               <table className="w-full min-w-[760px] border-collapse text-left">
                 <thead>
                   <tr className="border-b border-[#DDE4E0] bg-[#F9F9FC]">
-                    <TableHead>Patient Name</TableHead>
-                    <TableHead>Family Group</TableHead>
-                    <TableHead>Last Measurement</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Actions</TableHead>
+                    <TableHead>Paciente</TableHead>
+                    <TableHead>Grupo familiar</TableHead>
+                    <TableHead>Última medição</TableHead>
+                    <TableHead>Situação</TableHead>
+                    <TableHead>Ações</TableHead>
                   </tr>
                 </thead>
                 <tbody>
@@ -1280,7 +1297,7 @@ function DoctorMetricCard({ metric }: { metric: DoctorMetric }) {
     <article className={cn(cardClass, "p-5")}>
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="mb-1 text-xs font-bold uppercase text-[#5D6461]">
+          <p className="mb-1 text-xs font-bold text-[#5D6461] uppercase">
             {metric.label}
           </p>
           <p
@@ -1317,7 +1334,7 @@ function DoctorMetricCard({ metric }: { metric: DoctorMetric }) {
 
 function TableHead({ children }: { children: ReactNode }) {
   return (
-    <th className="px-5 py-3 text-xs font-bold uppercase text-[#5D6461]">
+    <th className="px-5 py-3 text-xs font-bold text-[#5D6461] uppercase">
       {children}
     </th>
   );

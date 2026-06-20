@@ -1,39 +1,39 @@
 {
   "brand": {
-    "name": "HUB Family",
+    "name": "HUB Família",
     "tagline": "Cuidado conectado para sua família Unimed.",
     "primaryColor": "#2B985E"
   },
   "start": {
-    "title": "HUB Family",
+    "title": "HUB Família",
     "subtitle": "Cuidado conectado para sua família Unimed.",
     "buttonLabel": "Acessar minha família",
     "helperText": "Seguro e exclusivo para clientes Unimed."
   },
   "navigation": [
     {
-      "label": "Dashboard",
+      "label": "Painel",
       "href": "/medico",
       "icon": "dashboard"
     },
     {
-      "label": "Family",
+      "label": "Família",
       "href": "/familia",
       "icon": "family"
     },
     {
-      "label": "Health",
+      "label": "Saúde",
       "href": "/monitoramento",
       "icon": "health"
     },
     {
-      "label": "Profile",
+      "label": "Perfil",
       "href": "/familia/helena",
       "icon": "profile"
     }
   ],
   "family": {
-    "title": "Minha Família",
+    "title": "Minha família",
     "description": "Gerencie o acesso e as informações de saúde dos seus dependentes.",
     "members": [
       {
@@ -72,23 +72,23 @@
     "id": "helena",
     "name": "Helena",
     "age": "64 anos",
-    "role": "Paciente Titular",
+    "role": "Paciente titular",
     "avatarUrl": "/mock/hub-family/helena-profile.png",
     "actions": [
       {
-        "label": "Agendar Consulta",
+        "label": "Agendar consulta",
         "href": "/permissoes",
         "tone": "primary",
         "icon": "calendar"
       },
       {
-        "label": "Histórico Clínico",
+        "label": "Histórico clínico",
         "href": "/monitoramento",
         "tone": "secondary",
         "icon": "history"
       },
       {
-        "label": "Modo Emergência",
+        "label": "Modo emergência",
         "href": "/emergencia",
         "tone": "danger",
         "icon": "emergency"
@@ -110,19 +110,19 @@
       "name": "Carlos",
       "relationship": "Filho",
       "phoneLabel": "Ligar para Carlos",
-      "messageLabel": "Enviar Mensagem"
+      "messageLabel": "Enviar mensagem"
     },
     "referenceDoctor": {
       "name": "Médico da família Unimed",
-      "specialty": "Clínica Comunitária"
+      "specialty": "Clínica comunitária"
     }
   },
   "monitoring": {
-    "title": "Monitoramento & Dispositivos",
+    "title": "Monitoramento e dispositivos",
     "description": "Acompanhe as métricas de saúde conectadas em tempo real.",
     "devices": [
       {
-        "name": "Sensor de Glicose",
+        "name": "Sensor de glicose",
         "description": "Libre ou similar",
         "status": "conectado",
         "statusTone": "connected",
@@ -134,7 +134,7 @@
         "description": "Apple Watch, Garmin, etc.",
         "status": "não conectado",
         "statusTone": "disconnected",
-        "actionLabel": "Conectar Dispositivo",
+        "actionLabel": "Conectar dispositivo",
         "icon": "watch"
       }
     ],
@@ -157,15 +157,15 @@
         "icon": "activity"
       }
     ],
-    "notice": "O HUB Family funciona mesmo sem dispositivo conectado."
+    "notice": "O HUB Família funciona mesmo sem dispositivo conectado."
   },
   "permissions": {
     "requester": "Carlos",
-    "title": "Permissões de Acesso",
-    "description": "Carlos deseja acompanhar suas informações no HUB Family. Escolha o que deseja compartilhar:",
+    "title": "Permissões de acesso",
+    "description": "Carlos deseja acompanhar suas informações no HUB Família. Escolha o que deseja compartilhar:",
     "sections": [
       {
-        "title": "Dados de Saúde",
+        "title": "Dados de saúde",
         "items": [
           {
             "label": "Histórico médico essencial",
@@ -228,8 +228,8 @@
     "securityLabel": "Ambiente seguro e criptografado"
   },
   "emergency": {
-    "exitLabel": "Sair do Modo Emergência",
-    "title": "Resumo Emergencial",
+    "exitLabel": "Sair do modo emergência",
+    "title": "Resumo emergencial",
     "subtitle": "Acesso rápido para plantonistas",
     "patient": {
       "name": "Helena",
@@ -244,75 +244,75 @@
       "name": "Carlos",
       "relationship": "Filho / Responsável",
       "phoneLabel": "Ligar para Carlos",
-      "messageLabel": "Enviar Mensagem"
+      "messageLabel": "Enviar mensagem"
     }
   },
   "doctorDashboard": {
     "provider": {
-      "name": "Dr. Sarah Jenkins",
-      "role": "Cardiology Specialist",
+      "name": "Dra. Sarah Jenkins",
+      "role": "Especialista em cardiologia",
       "avatarUrl": "/mock/hub-family/doctor-sarah-jenkins.png"
     },
-    "title": "Patient Directory",
-    "description": "Manage and monitor your family patient groups.",
-    "searchPlaceholder": "Search patients, ID, or family...",
+    "title": "Diretório de pacientes",
+    "description": "Gerencie e monitore os grupos familiares dos seus pacientes.",
+    "searchPlaceholder": "Buscar pacientes, ID ou família...",
     "metrics": [
       {
-        "label": "Total Patients",
+        "label": "Total de pacientes",
         "value": "1,248",
-        "description": "+12 this month",
+        "description": "+12 neste mês",
         "tone": "primary",
         "icon": "groups"
       },
       {
-        "label": "Needs Attention",
+        "label": "Requer atenção",
         "value": "24",
-        "description": "High Glucose / BPM Alerts",
+        "description": "Alertas de glicose ou frequência cardíaca alta",
         "tone": "danger",
         "icon": "warning"
       },
       {
-        "label": "Active Family Groups",
+        "label": "Grupos familiares ativos",
         "value": "342",
-        "description": "Stable overall",
+        "description": "Quadro geral estável",
         "tone": "neutral",
         "icon": "family"
       }
     ],
-    "tableTitle": "Recent Vitals Updates",
-    "tableSubtitle": "Last 24h",
+    "tableTitle": "Atualizações recentes de sinais vitais",
+    "tableSubtitle": "Últimas 24h",
     "patients": [
       {
         "name": "Marcus Rivera",
         "id": "PT-8821A",
         "initials": "MR",
-        "familyGroup": "Rivera Family",
+        "familyGroup": "Família Rivera",
         "lastMeasurement": "142/90 mmHg",
-        "measurementDetail": "Elevated BP - 10m ago",
-        "status": "Attention",
+        "measurementDetail": "Pressão elevada - há 10 min",
+        "status": "Atenção",
         "statusTone": "attention"
       },
       {
         "name": "Elena Chen",
         "id": "PT-4492B",
         "initials": "EC",
-        "familyGroup": "Chen-Wu Family",
+        "familyGroup": "Família Chen-Wu",
         "lastMeasurement": "98 mg/dL",
-        "measurementDetail": "Normal Glucose - 1h ago",
-        "status": "Stable",
+        "measurementDetail": "Glicose normal - há 1 h",
+        "status": "Estável",
         "statusTone": "stable"
       },
       {
         "name": "Thomas Smith",
         "id": "PT-1109C",
         "initials": "TS",
-        "familyGroup": "Smith Family",
+        "familyGroup": "Família Smith",
         "lastMeasurement": "72 BPM",
-        "measurementDetail": "Resting HR - 2h ago",
-        "status": "Stable",
+        "measurementDetail": "FC em repouso - há 2 h",
+        "status": "Estável",
         "statusTone": "stable"
       }
     ],
-    "paginationSummary": "Showing 1-3 of 1,248 patients"
+    "paginationSummary": "Mostrando 1-3 de 1.248 pacientes"
   }
 }

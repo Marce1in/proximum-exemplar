@@ -3,8 +3,8 @@ import { EmergencyScreen } from "@/components/hub-family/hub-family-dashboard";
 import { getHubFamilyAppMock } from "@/lib/mock/hub-family";
 
 export const metadata: Metadata = {
-  title: "Modo Emergência | HUB Family",
-  description: "Mock mobile do resumo emergencial HUB Family.",
+  title: "Modo emergência | HUB Família",
+  description: "Protótipo mobile do resumo emergencial HUB Família.",
 };
 
 export default function EmergencyPage() {
