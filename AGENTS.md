@@ -1,5 +1,6 @@
 # Agent Rules
 
+- Main brand color: `#2B985E`.
 - Use `pnpm`.
 - Do not add Prisma.
 - Do not add Express, NestJS, Fastify, GraphQL, Kubernetes, or a separate backend.
