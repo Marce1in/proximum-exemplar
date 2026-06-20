@@ -5,5 +5,5 @@ export function generateStaticParams() {
 }
 
 export default function LegacyPatientPage() {
-  redirect("/familia/helena");
+  redirect("/medico");
 }

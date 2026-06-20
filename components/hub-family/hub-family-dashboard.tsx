@@ -137,7 +137,7 @@ function BrandHeader({
   return (
     <header className="sticky top-0 z-40 border-b border-[#DDE4E0] bg-[#F9F9FC]/95 backdrop-blur">
       <div className="mx-auto flex h-14 w-full max-w-[430px] items-center justify-between px-4">
-        <Link href="/familia" className="flex items-center gap-2">
+        <Link href="/medico" className="flex items-center gap-2">
           <HubLogoMark />
           <span className="text-sm font-bold text-[#006A36]">{brand.name}</span>
         </Link>
@@ -291,7 +291,7 @@ export function HubFamilyStartScreen({ data }: { data: StartData }) {
         </p>
 
         <Link
-          href="/familia"
+          href="/medico"
           className="mt-14 inline-flex h-12 w-full max-w-[348px] items-center justify-center gap-3 rounded-lg bg-[#007A3D] px-5 text-sm font-bold text-white shadow-[0_4px_16px_rgba(0,122,61,0.22)] transition hover:bg-[#006A36]"
         >
           <LogInIcon aria-hidden="true" className="size-4" />
@@ -313,7 +313,7 @@ export function HubFamilyScreen({ data }: { data: AppData }) {
       navigation={data.navigation}
       active="family"
       right={
-        <IconButtonLink href="/familia/helena" label="Perfil">
+        <IconButtonLink href="/medico" label="Perfil">
           <BellIcon aria-hidden="true" className="size-4" />
         </IconButtonLink>
       }
@@ -335,7 +335,7 @@ export function HubFamilyScreen({ data }: { data: AppData }) {
 
       <div className="pointer-events-none fixed inset-x-0 bottom-20 z-50 mx-auto w-full max-w-[430px] px-4">
         <Link
-          href="/solicitar-acesso"
+          href="/medico"
           aria-label="Adicionar membro"
           className="pointer-events-auto ml-auto flex size-14 items-center justify-center rounded-2xl bg-[#007A3D] text-white shadow-[0_8px_22px_rgba(0,122,61,0.25)] transition hover:bg-[#006A36]"
         >
@@ -421,13 +421,13 @@ export function HelenaProfileScreen({ data }: { data: AppData }) {
       navigation={data.navigation}
       active="profile"
       right={
-        <IconButtonLink href="/familia" label="Voltar para família">
+        <IconButtonLink href="/medico" label="Voltar para família">
           <BellIcon aria-hidden="true" className="size-4" />
         </IconButtonLink>
       }
     >
       <Link
-        href="/familia"
+        href="/medico"
         className="mb-4 inline-flex items-center gap-2 text-xs font-medium text-[#3E4A3F]"
       >
         <ArrowLeftIcon aria-hidden="true" className="size-4" />
@@ -520,7 +520,7 @@ export function HelenaProfileScreen({ data }: { data: AppData }) {
             ))}
           </div>
           <Link
-            href="/monitoramento"
+            href="/medico"
             className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg py-2 text-xs font-semibold text-[#2B985E] transition hover:bg-[#F2F9F5]"
           >
             <PlusIcon aria-hidden="true" className="size-3" />
@@ -548,7 +548,7 @@ export function HelenaProfileScreen({ data }: { data: AppData }) {
               </div>
             </div>
             <Link
-              href="/emergencia"
+              href="/medico"
               aria-label={data.profile.emergencyContact.phoneLabel}
               className="flex size-10 items-center justify-center rounded-full border border-[#DDE4E0] text-[#2B985E] transition hover:bg-[#F2F9F5]"
             >
@@ -682,7 +682,7 @@ export function MonitoringScreen({ data }: { data: AppData }) {
       navigation={data.navigation}
       active="health"
       right={
-        <IconButtonLink href="/familia/helena" label="Voltar para perfil">
+        <IconButtonLink href="/medico" label="Voltar para perfil">
           <ArrowLeftIcon aria-hidden="true" className="size-4" />
         </IconButtonLink>
       }
@@ -770,7 +770,7 @@ function DeviceCard({ device }: { device: MonitoringDevice }) {
           ) : null}
           {device.actionLabel ? (
             <Link
-              href="/monitoramento"
+              href="/medico"
               className="mt-3 inline-flex h-9 w-full items-center justify-center gap-2 rounded-lg border border-[#2B985E] text-xs font-bold text-[#2B985E] transition hover:bg-[#F2F9F5]"
             >
               <Link2Icon aria-hidden="true" className="size-4" />
@@ -826,7 +826,7 @@ export function PermissionsScreen({ data }: { data: AppData }) {
       brand={data.brand}
       showNav={false}
       right={
-        <IconButtonLink href="/familia/helena" label="Fechar">
+        <IconButtonLink href="/medico" label="Fechar">
           <XIcon aria-hidden="true" className="size-4" />
         </IconButtonLink>
       }
@@ -860,7 +860,7 @@ export function PermissionsScreen({ data }: { data: AppData }) {
         </div>
 
         <Link
-          href="/familia/helena"
+          href="/medico"
           className="mt-6 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-[#007A3D] px-4 text-sm font-bold text-white shadow-[0_4px_16px_rgba(0,122,61,0.18)] transition hover:bg-[#006A36]"
         >
           <ShieldCheckIcon aria-hidden="true" className="size-4" />
@@ -925,7 +925,7 @@ export function AccessRequestScreen({ data }: { data: AppData }) {
           </p>
 
           <Link
-            href="/permissoes"
+            href="/medico"
             className="mt-8 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-[#007A3D] text-sm font-bold text-white transition hover:bg-[#006A36]"
           >
             <SendIcon aria-hidden="true" className="size-4" />
@@ -933,7 +933,7 @@ export function AccessRequestScreen({ data }: { data: AppData }) {
           </Link>
 
           <Link
-            href="/familia"
+            href="/medico"
             className="mt-6 inline-flex text-sm font-semibold text-[#2B985E]"
           >
             {data.accessRequest.backLabel}
@@ -954,7 +954,7 @@ export function EmergencyScreen({ data }: { data: AppData }) {
     <div className="min-h-dvh bg-[#F3F3F6] text-[#1A1C1E]">
       <main className="mx-auto min-h-dvh w-full max-w-[430px] bg-[#F9F9FC] px-4 py-5">
         <Link
-          href="/familia/helena"
+          href="/medico"
           className="mb-4 inline-flex items-center gap-2 text-xs font-semibold text-[#BA1A1A]"
         >
           <XIcon aria-hidden="true" className="size-3" />
@@ -1055,7 +1055,7 @@ export function EmergencyScreen({ data }: { data: AppData }) {
                 {data.emergency.emergencyContact.phoneLabel}
               </Link>
               <Link
-                href="/familia/helena"
+                href="/medico"
                 className="flex h-11 items-center justify-center gap-2 rounded-lg border border-[#BDCABE] bg-white text-sm font-bold text-[#2B985E] transition hover:bg-[#F2F9F5]"
               >
                 <MessageSquareIcon aria-hidden="true" className="size-4" />
@@ -1074,7 +1074,7 @@ export function DoctorDashboardScreen({ data }: { data: DoctorDashboardData }) {
     <div className="min-h-dvh bg-[#F9F9FC] text-[#1A1C1E] md:flex">
       <aside className="hidden w-64 shrink-0 border-r border-[#DDE4E0] bg-white md:sticky md:top-0 md:flex md:h-dvh md:flex-col">
         <div className="border-b border-[#DDE4E0] p-8">
-          <Link href="/familia" className="flex items-center gap-3">
+          <Link href="/medico" className="flex items-center gap-3">
             <HubLogoMark className="size-7" />
             <span className="text-xl leading-6 font-bold text-[#006A36]">
               HUB
@@ -1243,10 +1243,6 @@ export function DoctorDashboardScreen({ data }: { data: DoctorDashboardData }) {
           </section>
         </div>
       </main>
-
-      <div className="md:hidden">
-        <MobileBottomNav navigation={data.navigation} active="dashboard" />
-      </div>
     </div>
   );
 }
@@ -1262,7 +1258,7 @@ function DesktopNavItem({
 }) {
   return (
     <Link
-      href={active ? "/medico" : "/familia"}
+      href="/medico"
       className={cn(
         "relative flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-semibold transition",
         active
@@ -1408,7 +1404,7 @@ function DoctorPatientRow({ patient }: { patient: DoctorPatient }) {
       </td>
       <td className="px-5 py-4">
         <Link
-          href="/familia/helena"
+          href="/medico"
           aria-label={`Ver ${patient.name}`}
           className="inline-flex size-8 items-center justify-center rounded-full text-[#1A1C1E] transition hover:bg-[#F2F9F5]"
         >

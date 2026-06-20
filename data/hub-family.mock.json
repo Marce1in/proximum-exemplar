@@ -18,17 +18,17 @@
     },
     {
       "label": "Família",
-      "href": "/familia",
+      "href": "/medico",
       "icon": "family"
     },
     {
       "label": "Saúde",
-      "href": "/monitoramento",
+      "href": "/medico",
       "icon": "health"
     },
     {
       "label": "Perfil",
-      "href": "/familia/helena",
+      "href": "/medico",
       "icon": "profile"
     }
   ],
@@ -44,7 +44,7 @@
         "avatarUrl": "/mock/hub-family/helena.png",
         "status": "Acesso autorizado",
         "statusTone": "authorized",
-        "href": "/familia/helena"
+        "href": "/medico"
       },
       {
         "id": "roberto",
@@ -54,7 +54,7 @@
         "avatarUrl": "/mock/hub-family/roberto-family.png",
         "status": "Acesso pendente",
         "statusTone": "pending",
-        "href": "/solicitar-acesso"
+        "href": "/medico"
       },
       {
         "id": "ana",
@@ -64,7 +64,7 @@
         "avatarUrl": "/mock/hub-family/ana.png",
         "status": "Dependente",
         "statusTone": "dependent",
-        "href": "/familia"
+        "href": "/medico"
       }
     ]
   },
@@ -77,19 +77,19 @@
     "actions": [
       {
         "label": "Agendar consulta",
-        "href": "/permissoes",
+        "href": "/medico",
         "tone": "primary",
         "icon": "calendar"
       },
       {
         "label": "Histórico clínico",
-        "href": "/monitoramento",
+        "href": "/medico",
         "tone": "secondary",
         "icon": "history"
       },
       {
         "label": "Modo emergência",
-        "href": "/emergencia",
+        "href": "/medico",
         "tone": "danger",
         "icon": "emergency"
       }
