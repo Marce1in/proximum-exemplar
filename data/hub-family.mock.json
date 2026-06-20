@@ -1,0 +1,189 @@
+{
+  "brand": {
+    "name": "Hub Family",
+    "subtitle": "Portal do Provedor",
+    "primaryColor": "#2B985E"
+  },
+  "directoryProvider": {
+    "name": "Dra. Sarah Chen",
+    "role": "Diretora Médica",
+    "avatarUrl": "/mock/hub-family/doctor-sarah.png"
+  },
+  "recordProvider": {
+    "name": "Dr. Julian Vance",
+    "role": "Cardiologista",
+    "avatarUrl": "/mock/hub-family/doctor-julian.png"
+  },
+  "directory": {
+    "title": "Diretório de Pacientes",
+    "description": "Gerencie e monitore seus grupos de pacientes clínicos.",
+    "searchPlaceholder": "Pesquisar pacientes, registros ou famílias...",
+    "familyToggleLabel": "Agrupar por Família",
+    "metrics": {
+      "totalPatients": {
+        "label": "Total de Pacientes",
+        "value": "1.284",
+        "description": "+12% desde o mês passado"
+      },
+      "attention": {
+        "label": "Requer Atenção",
+        "value": "24",
+        "tags": ["12 HIPERTENSÃO", "8 GLICOSE CRÍTICA"]
+      },
+      "wellbeing": {
+        "label": "Índice de Bem-estar",
+        "value": 88
+      }
+    },
+    "patients": [
+      {
+        "id": "#4492-B",
+        "slug": "eleanor-johnson",
+        "name": "Eleanor Johnson",
+        "initials": "EJ",
+        "age": 64,
+        "status": "Estável",
+        "statusTone": "stable",
+        "heartRate": 72,
+        "heartRateLabel": "méd",
+        "glucose": 110,
+        "glucoseLabel": "mg/dL"
+      },
+      {
+        "id": "#8821-C",
+        "slug": "marcus-sterling",
+        "name": "Marcus Sterling",
+        "initials": "MS",
+        "age": 72,
+        "status": "Atenção",
+        "statusTone": "attention",
+        "heartRate": 104,
+        "heartRateLabel": "Alto",
+        "glucose": 142,
+        "glucoseLabel": "Elevado",
+        "avatarUrl": "/mock/hub-family/marcus-sterling.png",
+        "actionLabel": "Revisar"
+      },
+      {
+        "id": "#1029-A",
+        "slug": "alice-wong",
+        "name": "Alice Wong",
+        "initials": "AW",
+        "age": 29,
+        "status": "Estável",
+        "statusTone": "stable",
+        "heartRate": 68,
+        "heartRateLabel": "Normal",
+        "glucose": 92,
+        "glucoseLabel": "Normal"
+      },
+      {
+        "id": "#5511-D",
+        "slug": "robert-taylor",
+        "name": "Robert Taylor",
+        "initials": "RT",
+        "age": 41,
+        "status": "Estável",
+        "statusTone": "stable",
+        "heartRate": 81,
+        "heartRateLabel": "Normal",
+        "glucose": 105,
+        "glucoseLabel": "Normal"
+      }
+    ],
+    "pagination": {
+      "summary": "Exibindo 1 a 4 de 1.284 pacientes",
+      "pages": [1, 2, 3],
+      "activePage": 1
+    },
+    "recordPreviewSlug": "camila-soares"
+  },
+  "patientRecord": {
+    "slug": "camila-soares",
+    "name": "Camila Soares",
+    "id": "#88219-B",
+    "status": "Ativo",
+    "avatarUrl": "/mock/hub-family/camila-soares.png",
+    "demographics": {
+      "age": "34 anos",
+      "gender": "Feminino",
+      "bloodType": "A+ Positivo",
+      "location": "Lisboa, Portugal"
+    },
+    "searchPlaceholder": "Buscar paciente, registro ou laboratório...",
+    "vitals": [
+      {
+        "id": "heart-rate",
+        "label": "Frequência Cardíaca",
+        "value": "72",
+        "unit": "bpm",
+        "status": "2% normal",
+        "trend": "down",
+        "rangeLabel": "Últimos 7 dias",
+        "chart": [44, 66, 58, 78, 52, 62, 56]
+      },
+      {
+        "id": "glucose",
+        "label": "Glicose",
+        "value": "94",
+        "unit": "mg/dL",
+        "status": "Estável",
+        "trend": "stable",
+        "rangeLabel": "Últimos 7 dias",
+        "chart": [66, 54, 60, 74, 64, 78, 55]
+      }
+    ],
+    "timeline": [
+      {
+        "type": "check",
+        "title": "Check-in Diário Concluído",
+        "description": "Sintomas auto-relatados: Nenhum. Sentindo-se com energia hoje.",
+        "time": "Hoje, 09:15 AM"
+      },
+      {
+        "type": "lab",
+        "title": "Resultados de Exame de Sangue Carregados",
+        "description": "Painel: Metabólico Abrangente. Todos os valores dentro da faixa normal, exceto Vit-D.",
+        "time": "Ontem, 04:30 PM",
+        "attachment": "Relatorio_Lab_Jan.pdf"
+      },
+      {
+        "type": "therapy",
+        "title": "Sessão de Fisioterapia",
+        "description": "Sessão #4 de 12. Mobilidade melhorada no joelho esquerdo (aumento de 45°).",
+        "time": "12 de Fev, 11:00 AM"
+      }
+    ],
+    "familyAccess": [
+      {
+        "name": "Roberto Soares",
+        "relationship": "Pai / Contato de Emergência",
+        "avatarUrl": "/mock/hub-family/roberto-soares.png"
+      },
+      {
+        "name": "Lucas Soares",
+        "relationship": "Irmão / Acesso Secundário",
+        "avatarUrl": "/mock/hub-family/lucas-soares.png"
+      }
+    ],
+    "medications": [
+      {
+        "name": "Metformina 500mg",
+        "instructions": "Duas vezes ao dia com as refeições",
+        "tone": "lime"
+      },
+      {
+        "name": "Vitamina D3 2000UI",
+        "instructions": "Uma vez ao dia pela manhã",
+        "tone": "green"
+      }
+    ],
+    "nextSession": {
+      "label": "Próxima Sessão",
+      "date": "Sexta, 24 de Fev",
+      "time": "10:30 AM",
+      "doctor": "Dr. Vance",
+      "specialty": "Cardiologia"
+    }
+  }
+}
